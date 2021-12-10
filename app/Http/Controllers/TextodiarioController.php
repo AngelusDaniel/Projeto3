@@ -14,8 +14,7 @@ class TextodiarioController extends Controller
      */
     public function index()
     {
-        $nome = array("nome" => "DN");
-        return view ("inicial", $nome);
+        return view ("adm/textodiario");
     }
 
     /**

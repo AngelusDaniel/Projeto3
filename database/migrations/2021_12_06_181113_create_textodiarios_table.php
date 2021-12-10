@@ -15,6 +15,9 @@ class CreateTextodiariosTable extends Migration
     {
         Schema::create('textodiarios', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()
+             ->onDelete('cascade')->onUptade('cascade');
+            $table->string('texto'); 
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TextodiarioController;
+use App\Http\Controllers\Initial\InicioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view("welcome");
-});
-Route::get("/textodiario", [TextodiarioController::class, "index"]);
+Route::get('/', [InicioController::class, "index"]);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+
+Route::middleware(['auth:sanctum', 'verified']) ->group(function(){
+
+    route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    
+
+    Route::resource("textodiario", TextodiarioController::class);
+}
+);
+
+
