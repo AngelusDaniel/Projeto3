@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use app\Models\Textodiario;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,10 +16,10 @@ class TextodiarioController extends Controller
     public function index()
     {
         $textodiario = Textodiario::all();
-    return $this->success($textodiario);
+        return $this->success($textodiario);
     }
 
-     
+
 
     /**
      * Store a newly created resource in storage.
@@ -33,7 +34,7 @@ class TextodiarioController extends Controller
             'texto' => 'required|max:255|unique:textodiario',
         ]);
         if ($validated) {
-            $textodiario = new TextoDiario();
+            $textodiario = new Textodiario();
             $textodiario->user_id = $request->get('user_id');
             $textodiario->texto = $request->get('texto');
         }

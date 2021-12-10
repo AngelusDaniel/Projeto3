@@ -15,10 +15,11 @@ use App\Http\Controllers\API\AuthController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
-    Route::resource("Textodiario", TextodiarioController::class);
-  });
+    Route::resource("textodiario", TextodiarioController::class);
+});
