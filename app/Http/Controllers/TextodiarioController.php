@@ -38,8 +38,18 @@ class TextodiarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'user_id' => 'required|integer',
+            'texto' => 'required|max:1000',
+        ]);
+        if ($validated) {
+            $textodiario = new Textodiario();
+            $textodiario->user_id = $request->get('user_id');
+            $textodiario->texto = $request->get('texto');
+            $textodiario->save();
+      return redirect("textodiario");
     }
+}
 
     /**
      * Display the specified resource.
@@ -60,7 +70,8 @@ class TextodiarioController extends Controller
      */
     public function edit(Textodiario $textodiario)
     {
-        //
+        $users=User::all();
+        return view("adm/textodiario/edit", compact('users', 'textodiario'));
     }
 
     /**
@@ -72,8 +83,17 @@ class TextodiarioController extends Controller
      */
     public function update(Request $request, Textodiario $textodiario)
     {
-        //
+        $validated = $request->validate([
+            'user_id' => 'required|integer',
+            'texto' => 'required|max:1000',
+        ]);
+        if ($validated) {
+            $textodiario->user_id = $request->get('user_id');
+            $textodiario->texto = $request->get('texto');
+            $textodiario->save();
+      return redirect("textodiario");
     }
+}
 
     /**
      * Remove the specified resource from storage.

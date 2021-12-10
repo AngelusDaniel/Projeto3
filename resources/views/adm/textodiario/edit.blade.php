@@ -10,13 +10,13 @@
 @endif
 <form method="POST" action="{{url('textodiario')}}">
   @csrf
-  @method('POST')
+  @method('PUT')
   <div class="row">
     <label class="col-2" for="user">Usuário</label>
     <select class="col-3" name="user_id" id="user">
       <option></option>
       @foreach($users as $user)
-      <option value="{{$user->id}}" @if($user->id==old('user_id')) selected @endif>{{$user->name}}</option>
+      <option value="{{$user->id}}" @if($user->id==$textodiario->user_id') selected @endif>{{$user->name}}</option>
       @endforeach
     </select>
     <label class="col-2" for="doc">Texto</label>
