@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Textodiario;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class TextodiarioController extends Controller
      */
     public function index()
     {
-        return view ("adm/textodiario");
+        $textodiarios = Textodiario::all();
+        return view ("adm/textodiario", compact('textodiarios'));
     }
 
     /**
@@ -24,7 +26,8 @@ class TextodiarioController extends Controller
      */
     public function create()
     {
-        //
+        $users=User::all();
+        return view("adm/textodiario/create", compact('users'));
     }
 
     /**
