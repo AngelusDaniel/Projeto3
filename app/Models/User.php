@@ -59,7 +59,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
     public function textodiario(){
-        return $this->hasone(Textodiario::class);
+        return $this->hasmany(Textodiario::class);
     }
 }
 
