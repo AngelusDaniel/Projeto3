@@ -85,7 +85,7 @@ class TextodiarioController extends Controller
     {
         $validated = $request->validate([
             'user_id' => 'required|integer',
-            'texto' => 'required|max:1000',
+            'texto' => 'required|max:255',
         ]);
         if ($validated) {
             $textodiario->user_id = $request->get('user_id');
