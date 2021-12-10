@@ -791,10 +791,10 @@ select {
 .prose ol[type="a"] {
 	--list-counter-style: lower-alpha;
 }
-.prose ol[type="A" ] {
+.prose ol[type="A" s] {
 	--list-counter-style: upper-alpha;
 }
-.prose ol[type="a" ] {
+.prose ol[type="a" s] {
 	--list-counter-style: lower-alpha;
 }
 .prose ol[type="I"] {
@@ -803,10 +803,10 @@ select {
 .prose ol[type="i"] {
 	--list-counter-style: lower-roman;
 }
-.prose ol[type="I" ] {
+.prose ol[type="I" s] {
 	--list-counter-style: upper-roman;
 }
-.prose ol[type="i" ] {
+.prose ol[type="i" s] {
 	--list-counter-style: lower-roman;
 }
 .prose ol[type="1"] {
@@ -1186,6 +1186,9 @@ select {
 }
 .inline-flex {
 	display: inline-flex;
+}
+.table {
+	display: table;
 }
 .grid {
 	display: grid;
